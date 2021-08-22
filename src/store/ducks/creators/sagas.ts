@@ -11,10 +11,10 @@ export function* watchCreators(): any {
   ]);
 }
 
-function* loadAll({ payload: { limit } }: any) {
+function* loadAll({ payload: { limit, offset } }: any) {
   try {
     const { data: { data: { data: total, results } = {} } = {} } =
-      yield call(api.get, 'creators', { params: { limit } });
+      yield call(api.get, 'creators', { params: { limit, offset } });
 
     yield put(loadSuccess(results));
   } catch (err) {

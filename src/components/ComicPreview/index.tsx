@@ -1,9 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
+import { Layout } from '@ui-kitten/components';
 import React from 'react';
 import { Pressable, View } from 'react-native';
 import { Comic } from '../../store/ducks/comics/types';
 
 import { Container, Subtitle, Title, Image, Content } from './styles';
+import { Text } from '@ui-kitten/components';
 
 const ComicPreview = ({ comic }: { comic: Comic }) => {
   const image = {
@@ -27,17 +29,19 @@ const ComicPreview = ({ comic }: { comic: Comic }) => {
   };
 
   return (
-    <Pressable onPress={() => goToResource(comic)}>
-      <Container>
-        <View>
-          <Image source={image} />
-        </View>
-        <Content>
-          <Title>{comic.title}</Title>
-          <Subtitle>{creators}</Subtitle>
-        </Content>
-      </Container>
-    </Pressable>
+    <Layout>
+      <Pressable onPress={() => goToResource(comic)}>
+        <Container>
+          <View>
+            <Image source={image} />
+          </View>
+          <Content>
+            <Text category='h5'>{comic.title}</Text>
+            <Text category='s1'>{creators}</Text>
+          </Content>
+        </Container>
+      </Pressable>
+    </Layout>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Creator } from '../../store/ducks/creators/types';
+import { Text } from '@ui-kitten/components';
+
 
 import { Container, Subtitle, Title, Image, Content } from './styles';
 
@@ -15,8 +17,8 @@ const CreatorPreview = ({ creator }: { creator: Creator }) => {
         <Image source={image} />
       </View>
       <Content>
-        <Title>{creator.fullName}</Title>
-        <Subtitle>{creator.suffix}</Subtitle>
+        <Text category='h5'>{creator.fullName}</Text>
+        <Text category='s1'>{creator.suffix}</Text>
       </Content>
     </Container>
   );

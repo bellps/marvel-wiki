@@ -4,11 +4,11 @@ import { Pressable, StyleSheet, useWindowDimensions } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 
-import { Button, Text, View } from 'react-native';
-import { Container, Title, Content, LoadingView } from './styles';
+import { View } from 'react-native';
+import { Container, Title, Content } from './styles';
 import { HomeStackParamList } from '../../types';
 
-import { List, ListItem, Spinner } from '@ui-kitten/components';
+import { Text, Spinner } from '@ui-kitten/components';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { ApplicationState } from '../../store';
@@ -23,7 +23,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ComicPreview from '../../components/ComicPreview';
 import CreatorPreview from '../../components/CreatorPreview';
 import { ThemeContext } from '../../theme-context';
-
+import { Layout } from '@ui-kitten/components';
 
 export type HomeScreenNavigationProp = StackNavigationProp<
   HomeStackParamList,
@@ -50,7 +50,7 @@ export default function Home({ navigation }: Props) {
 
   useEffect(() => {
     dispatch(ComicsActions.loadAll({ limit: 5, offset: 20 }));
-    dispatch(CreatorsActions.loadAll({ limit: 5 }));
+    dispatch(CreatorsActions.loadAll({ limit: 5, offset: 30 }));
   }, []);
 
   const { data: comics, loading: loadingComics } = useSelector(
@@ -87,22 +87,24 @@ export default function Home({ navigation }: Props) {
   );
 
   const renderData = () => (
-    <Container>
-      <SafeAreaView>
-        <TopLogo />
-        <Slider itens={carouselItems} />
-        <Content>
-          <Title>Last comics</Title>
-          {comics.map((comic: Comic) => (
-            <ComicPreview key={comic.id} comic={comic} />
-          ))}
-          <Title>Cool people</Title>
-          {creators.map((creator: Creator) => (
-            <CreatorPreview key={creator.id} creator={creator} />
-          ))}
-        </Content>
-      </SafeAreaView>
-    </Container>
+    <Layout>
+      <Container>
+        <SafeAreaView>
+          <TopLogo />
+          <Slider itens={carouselItems} />
+          <Content>
+            <Text category='h4'>Last comics</Text>
+            {comics.map((comic: Comic) => (
+              <ComicPreview key={comic.id} comic={comic} />
+            ))}
+            <Text category='h4'>Cool people</Text>
+            {creators.map((creator: Creator) => (
+              <CreatorPreview key={creator.id} creator={creator} />
+            ))}
+          </Content>
+        </SafeAreaView>
+      </Container>
+    </Layout>
   );
 
   return loadingComics && loadingCreators && carouselItems.length === 0

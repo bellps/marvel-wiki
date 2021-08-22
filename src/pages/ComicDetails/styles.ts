@@ -6,20 +6,22 @@ export const Container = styled.ScrollView`
 
 export const ImageBackground = styled.ImageBackground`
   height: 617px;
+  background-color: ${props => props.theme['color-basic-900']};
 `;
 
 export const Row = styled.ScrollView`
   border-bottom-width: 1px;
   padding: 12px 0;
-  border-bottom-color: #808080;
+  border-bottom-color: ${props => props.theme['color-basic-700']};
   border-top-width: 1px;
-  border-top-color: #808080;
+  border-top-color: ${props => props.theme['color-basic-700']};
 `;
 
 export const Tag = styled.View`
   padding: 5px 15px;
   margin: 0 5px;
-  background-color: aqua;
+  background-color: ${props => props.theme['color-primary-500']};
+  color: #F5F5F5;
   border-radius: 16px;
 `;
 

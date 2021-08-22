@@ -6,7 +6,7 @@ export const Container = styled.View`
   padding-top: 12px;
   padding-bottom: 12px;
   border-bottom-width: 1px;
-  border-bottom-color: #808080;
+  border-bottom-color: ${props => props.theme['color-basic-700']};
 `;
 
 export const Title = styled.Text`

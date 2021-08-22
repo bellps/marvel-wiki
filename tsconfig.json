@@ -19,7 +19,8 @@
             "shadow-offset",
             "shadow-radius",
             "text-align-vertical",
-            "tint-color"
+            "tint-color",
+            "overlay-color",
           ]
         }
       }

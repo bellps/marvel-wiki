@@ -1,0 +1,20 @@
+{
+  "strict": {
+    "text-font-family": "OpenSans-Regular",
+
+    "text-heading-1-font-weight": "800",
+    "text-heading-1-font-family": "OpenSans-Bold",
+
+    "text-heading-4-font-weight": "800",
+    "text-heading-4-font-family": "OpenSans-Bold",
+
+    "text-heading-5-font-weight": "800",
+    "text-heading-5-font-family": "OpenSans-SemiBold",
+
+    "text-heading-6-font-weight": "800",
+    "text-heading-6-font-family": "OpenSans-Bold",
+
+    "text-caption-2-font-weight": "800",
+    "text-caption-2-font-family": "OpenSans-SemiBold"
+  }
+}
